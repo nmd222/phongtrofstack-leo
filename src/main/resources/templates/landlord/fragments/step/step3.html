@@ -1,0 +1,106 @@
+<div class="tab-pane" role="tabpanel" id="step3">
+  <h4 class="text-center">Phòng trọ</h4>
+
+<div id="chiTietPhongContainer">
+</div>
+
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const soPhong = document.getElementById('soPhong').value;
+    const container = document.getElementById('chiTietPhongContainer');
+    container.innerHTML = ''; // Xóa nội dung cũ
+        console.log(soPhong);
+    for (let i = 1; i <= soPhong; i++) {
+      const divPhong = document.createElement('div');
+      divPhong.classList.add('col-md-12');
+      divPhong.innerHTML = `
+      <div style="padding-bottom: 15px;">
+          <hr> <!-- Dòng kẻ cắt ngang -->
+          <h5 style="margin-bottom: 15px;">Số thứ tự phòng ${i}</h5> <!-- Thẻ <h> hiển thị số thứ tự phòng -->
+        </div>
+         <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Tên phòng *</label>
+        <input class="form-control" type="text" name="name" placeholder=""
+               id="room-name-${i}"/>
+      </div>
+      <div class="row" >
+        <div class="col-md-6">
+          <div class="form-group" >
+            <label>Tiền điện</label>
+            <input class="form-control" type="text" name="name"
+                   placeholder="0 VND"
+                   id="room-electricService-${i}" min="0" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Tiền nước</label>
+            <input class="form-control" type="text" name="name"
+                   placeholder="0 VND"
+                   id="room-waterService-${i}" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Diện tích</label>
+            <input class="form-control" type="text" name="name"
+                   placeholder="" id="room-rentPrice-${i}"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Giá phòng</label>
+            <input class="form-control" type="text" name="name"
+                   placeholder="0 VND" id="room-acreage-${i}" oninput="formatNumber(this)"
+                   />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Mô tả *</label>
+        <textarea class="form-control" rows="5" type="text" name="name"
+                  required minlength="30" data-msg-minlength="Tiêu đề quá ngắn"
+                  data-msg-required="Mô tả không được để trống"
+                  data-msg-maxlength="Mô tả quá dài"
+                  placeholder="Vui lòng nhập mô tả"
+                  id="room-description-${i}"></textarea>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Link video phòng Youtube</label>
+            <input class="form-control" type="text" name="name"
+                   placeholder="" id="room-video-${i}"/>
+          </div>
+
+        </div>
+        <div class="col-md-6 border p-3 text-center">
+  <label for="images-${i}" style="display: inline-block; margin-bottom: 10px;">Chọn ảnh</label>
+  <input type="file" multiple onchange="previewMultiple(event, ${i})"
+         id="images-${i}" accept=".jpg,.gpn,.pdf,.png" style="display: none;" />
+    <div id="galeria-${i}" class="d-flex justify-content-center">
+    <!-- Hiển thị ảnh -->
+  </div>
+</div>
+      </div>
+    </div>
+
+  </div>
+
+      `;
+      container.appendChild(divPhong);
+    }
+  });
+</script>
