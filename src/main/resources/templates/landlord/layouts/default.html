@@ -42,9 +42,9 @@
 <div class="wrapper">
   <!-- loader END -->
   <!-- Sidebar  -->
-  <div th:replace="~{/landlord/fragments/sidebar}"></div>
+  <div th:replace="~{/landlord/fragments/sidebar :: sidebar}"></div>
   <!-- TOP Nav Bar -->
-  <div th:replace="~{/landlord/fragments/header}"></div>
+  <div th:replace="~{/landlord/fragments/header :: header}"></div>
   <!-- TOP Nav Bar END -->
   <!-- Page Content  -->
   <div id="content-page" class="content-page">
@@ -55,7 +55,7 @@
 </div>
 <!-- Wrapper END -->
 <!-- Footer -->
-<div th:replace="~{/landlord/fragments/footer}"></div>
+<div th:replace="~{/landlord/fragments/footer :: footer}"></div>
 <!-- Footer END -->
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
