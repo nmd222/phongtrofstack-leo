@@ -30,7 +30,7 @@ public class HomeController {
 
   @GetMapping({"/home/{id}", "/{id}"})
   public String homeShowNews(ModelMap modelMap, HttpSession session, @PathVariable("id") Long id) {
-    UserDTO user = userService.getUser(id);
+    UserDTO user = userService.getUser(id==null?1L:id);
     session.setAttribute("user", user);
     long idUser = ((UserDTO) session.getAttribute("user")).getId();
     List<PostDTO> postDTOs = postService.getPostAndRateByUser(idUser);
