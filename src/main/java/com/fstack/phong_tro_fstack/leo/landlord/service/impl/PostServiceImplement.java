@@ -34,6 +34,7 @@ public class PostServiceImplement implements PostService {
     postDTO.setCreatedTime(dto.getCreatedTime());
     postDTO.setIdArea(Long.valueOf(dto.getIdArea()));
     postDTO.setIdUser(dto.getIdUser());
+    postDTO.setNumberDate(3);
     postRepository.save(postConverter.toEntity(postDTO));
     return postDTO;
   }
